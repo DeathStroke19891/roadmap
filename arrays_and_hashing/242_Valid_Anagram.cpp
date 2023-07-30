@@ -4,13 +4,14 @@ class Solution {
 public:
     bool isAnagram(string s, string t) {
         unordered_map<char,int> map;
+	int size = s.length();
+	if(size != t.length()){
+	  return false;
+	}
         for(int i = 0;i<s.size();i++)
         {
             map[s[i]]++;
-        }
-        for(int i = 0;i<t.size();i++)
-        {
-            map[t[i]]--;
+	    map[t[i]]--;
         }
         for(auto it = map.begin();it!=map.end();it++)
         {
